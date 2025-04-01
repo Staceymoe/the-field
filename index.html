@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Field – Synced Portal</title>
+  <title>The Field – Portal Final</title>
   <style>
     html, body {
       margin: 0;
@@ -38,7 +38,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
       cursor: pointer;
     }
 
@@ -59,6 +59,7 @@
       white-space: nowrap;
       line-height: 1.4em;
       animation-fill-mode: forwards;
+      transform: translateY(48px); /* 0.5 inch lower placement */
     }
 
     @keyframes breathe {
@@ -67,11 +68,11 @@
     }
 
     @keyframes signalRise {
-      0%   { opacity: 0; transform: translateY(10px); }
-      15%  { opacity: 1; transform: translateY(0); }
-      55%  { opacity: 1; transform: translateY(0); }
-      75%  { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 0; transform: translateY(-10px); }
+      0%   { opacity: 0; transform: translateY(58px); }
+      15%  { opacity: 1; transform: translateY(48px); }
+      55%  { opacity: 1; transform: translateY(48px); }
+      75%  { opacity: 0; transform: translateY(38px); }
+      100% { opacity: 0; transform: translateY(38px); }
     }
 
     @keyframes fadeInEnter {
@@ -115,3 +116,4 @@
   </script>
 </body>
 </html>
+
