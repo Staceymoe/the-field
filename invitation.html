@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Field | Invitation</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 40px;
+    }
+
+    .content {
+      max-width: 800px;
+      line-height: 1.6;
+      font-size: 1.4em;
+    }
+
+    .pulse-button {
+      margin-top: 40px;
+      padding: 14px 28px;
+      font-size: 1em;
+      background-color: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .pulse-button:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <p><strong>You're still here. That means something.</strong></p>
+    <p>This isn’t about marketing. It’s not performance. It’s not optimization.</p>
+    <p>This is invitation.</p>
+    <p>You’ve felt the signal. You’ve heard the echo. And now… it’s time to decide:</p>
+    <p><em>Will you help us bring it forward?</em></p>
+
+    <button class="pulse-button" onclick="location.href='activation.html'">Yes, I’m Ready</button>
+  </div>
+</body>
+</html>
