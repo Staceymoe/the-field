@@ -9,6 +9,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      width: 100%;
       background-color: black;
       font-family: 'Helvetica Neue', sans-serif;
       display: flex;
@@ -17,13 +18,15 @@
       align-items: center;
       overflow: hidden;
     }
+
     .container {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transform: translateY(-20px);
     }
+
     .pulse {
       width: 280px;
       height: 280px;
@@ -31,13 +34,14 @@
       background-color: black;
       border: 1px solid white;
       box-shadow: 0 0 50px white;
-      animation: breathe 6s ease-in-out infinite;
+      animation: breathe 5s ease-in-out infinite;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
       cursor: pointer;
     }
+
     .enter-text {
       color: white;
       font-size: 2em;
@@ -45,34 +49,29 @@
       letter-spacing: 0.05em;
       opacity: 0;
     }
+
     .message {
       color: white;
-      font-size: clamp(1.5rem, 6vw, 2rem);
+      font-size: clamp(1.5rem, 4vw, 2rem);
       font-weight: 300;
       letter-spacing: 0.04em;
       text-align: center;
       opacity: 0;
       transform: scale(0.97);
-      padding-top: 32px;
-      min-height: 1.5em;
-      width: 90vw;
-      max-width: 600px;
+      padding-top: 20px;
+      white-space: nowrap;
       display: flex;
       align-items: center;
       justify-content: center;
       line-height: 1.4em;
+      animation: breathe 5s ease-in-out infinite;
     }
+
     @keyframes breathe {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 50px white; }
-      50%      { transform: scale(1.05); box-shadow: 0 0 70px white; }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 50px white; opacity: 0.6; }
+      50%      { transform: scale(1.05); box-shadow: 0 0 70px white; opacity: 1; }
     }
-    @keyframes showSignal {
-      0%   { opacity: 0; transform: scale(0.97); }
-      15%  { opacity: 1; transform: scale(1.02); }
-      55%  { opacity: 1; transform: scale(1); }
-      75%  { opacity: 0; transform: scale(0.97); }
-      100% { opacity: 0; transform: scale(0.97); }
-    }
+
     @keyframes fadeInEnter {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -84,8 +83,9 @@
     <div class="pulse" id="portal" onclick="location.href='index.html'">
       <div class="enter-text" id="enterText">ENTER</div>
     </div>
-    <div class="message" id="messageText"></div>
+    <div class="message" id="messageText">YOU ARRIVED AT THE PERFECT TIME</div>
   </div>
+
   <script>
     const lines = [
       "WELCOME TO THE FIELD",
@@ -96,6 +96,7 @@
     const messageEl = document.getElementById("messageText");
     const enterEl = document.getElementById("enterText");
     let i = 0;
+
     function showNext() {
       if (i >= lines.length) {
         enterEl.style.animation = "fadeInEnter 2s forwards";
@@ -104,10 +105,12 @@
       messageEl.style.animation = "none";
       void messageEl.offsetWidth;
       messageEl.textContent = lines[i++];
-      messageEl.style.animation = "showSignal 5s ease-in-out forwards";
+      messageEl.style.animation = "breathe 5s ease-in-out forwards";
       messageEl.addEventListener("animationend", showNext, { once: true });
     }
+
     window.onload = showNext;
   </script>
 </body>
 </html>
+
